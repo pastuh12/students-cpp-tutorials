@@ -9,17 +9,28 @@ private:
     string surname;
     int age;
 public:
+
     Children(string name, string surname, int age)
     {
         this->name = name;
         this->surname = surname;
         this->age = age;
-        cout << this->name << endl << this->surname << endl << this->age;
+        cout << this->name << endl << this->surname << endl << this->age << endl;
+    }
+
+    void setName(){
+        cin >> this->name;
+    }
+
+    string getName(){
+        return this->name;
     }
 };
 int main() {
     Children child = Children("Alex", "Margenal", 12);
-    Children("dsd", "wedcd", 12);
+    child.setName();
+    cout << child.getName();
+    // Children("dsd", "wedcd", 12);
     return 0;
 }
 // #include <iostream>
