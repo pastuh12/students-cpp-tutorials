@@ -20,16 +20,17 @@ int main()
 			"2 - Считать количество повторений слова" << endl <<
 			"0 - Выйти из программы" << endl;
 		cin >> choice;
-		cout << choice;
 		switch (choice)
 		{
 		case 0:
 			cout << "Программа успешно завершена!";
-			break;
+			return 0;
 		case 1:
 			cout << "Введите текст:" << endl;
+			cin >> text;
+			cout << endl << text;
 			cin.get();
-			getline(cin, text);
+			getline(cin, text, ' ');
 			break;
 		case 2:
 			copyText = text;
@@ -39,7 +40,9 @@ int main()
 			if (wordd != "") {
 				position = copyText.find(' ');
 				while (position > 0) {
-					count += copyText.substr(0, position) == wordd;
+					if(copyText.substr(0, position) == wordd){
+						count++ ;
+					}
 					copyText.erase(0, position + 1);
 					position = copyText.find(' ');
 				}
