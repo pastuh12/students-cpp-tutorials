@@ -14,7 +14,7 @@ struct Node
 
 struct list
 {
-    Node *first;
+    Node *first;// голова
     Node *last;
     list() : first(nullptr), last(nullptr) {}
 
@@ -23,18 +23,7 @@ struct list
         return first == nullptr;
     }
 
-    void push_back(string _val)
-    {
-        Node *p = new Node(_val);
-        if (is_empty())
-        {
-            first = p;
-            last = p;
-            return;
-        }
-        last->next = p;
-        last = p;
-    }
+
 
     void print()
     {
@@ -65,15 +54,28 @@ struct list
         first = p->next;
         delete p;
     }
+
+        void push_back(string _val)
+    {
+        Node *p = new Node(_val);
+        if (is_empty())
+        {
+            first = p;
+            last = p;
+            return;
+        }
+        last->next = p;
+        last = p;
+    }
 };
 
 int main()
 {
     list l;
-    cout << l.first << endl;
-    l.push_back("dsd");
-    cout << l.first->val << endl;
 
-    cout << l.find("dsd")->val << endl;
+    l.push_back("dsd");
+    l.push_back("gggg");
+    cout << endl;
+    l.print();
     return 0;
 }
