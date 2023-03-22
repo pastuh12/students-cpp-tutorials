@@ -6,8 +6,9 @@ struct Node
 {
     string val;
     Node *next;
-    Node(string _val) : val(_val), next(nullptr)
-    {
+    Node(string _val) {
+        val = _val;
+        next = nullptr;
         cout << _val;
     }
 };
@@ -71,11 +72,17 @@ struct list
 
 int main()
 {
+
+    string name;
+    int age;
     list l;
 
     l.push_back("dsd");
     l.push_back("gggg");
+    
     cout << endl;
+
+
     l.print();
     return 0;
 }
